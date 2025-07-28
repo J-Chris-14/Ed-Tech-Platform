@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Edu Learn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff5722;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://png.pngtree.com/background/20210709/original/pngtree-vector-graffiti-book-creative-educational-background-blackboard-picture-image_548339.jpg') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .hero-content {
+            z-index: 10;
+        }
+        
+        .typed-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            height: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .typed-cursor {
+            font-size: 2.5rem;
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .counter-container {
+            margin: 3rem 0;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            color: var(--secondary-color);
+        }
+        
+        .feature-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .feature-card.active .feature-details {
+            max-height: 500px;
+        }
+        
+        .testimonial-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+        
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-card:hover .star-rating {
+            opacity: 1;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+           <a class="navbar-brand" href="index.html">
+                <img src="https://static.vecteezy.com/system/resources/previews/029/799/394/original/ai-in-education-icon-vector.jpg" alt="Edu" width="30" height="24">
+            </a>
+            <a class="navbar-brand" href="index.html">Edu Learn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #testimonials">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="index.html #cta" class="btn btn-outline-light">Get Started</a>
+                    <div class="dropdown d-inline">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Portfolio Section -->
+    <section class="hero-section">
+            <h2 class="hero-content display-4 mb-3 text-center">Our Projects</h2>
+    </section>
+    <section class="portfolio-section mt-1 pt-3" id="portfolio">
+            <div class="text-center mb-4">
+                <button class="btn btn-primary" onclick="filterProjects('all')">All</button>
+                <button class="btn btn-secondary" onclick="filterProjects('social')">Social Learning</button>
+                <button class="btn btn-secondary" onclick="filterProjects('web')">Web Development</button>
+                <button class="btn btn-secondary" onclick="filterProjects('collab')">Collaboration</button>
+            </div>
+        <div class="row" id="portfolioGrid">
+            <div class="row" id="portfolioGrid">
+                <div class="col-md-4 portfolio-card" data-category="social" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Project A" data-description="Description of Project A" data-image="https://tse1.mm.bing.net/th/id/OIP.mG7FGreoE9wKegKs2TbIRQHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" data-testimonial="Client A: This project is great!">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.mG7FGreoE9wKegKs2TbIRQHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Project A" class="portfolio-img">
+                    <h3 class="portfolio-title">Project A</h3>
+                    <p class="portfolio-description">Social Learning Project</p>
+                </div>
+                <div class="col-md-4 portfolio-card" data-category="web" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Project B" data-description="Description of Project B" data-image="https://tse4.mm.bing.net/th/id/OIP.bgAMaPDZIDDCnZUKAn3duQHaGC?rs=1&pid=ImgDetMain&o=7&rm=3" data-testimonial="Client B: This project exceeded our expectations!">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.bgAMaPDZIDDCnZUKAn3duQHaGC?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Project B" class="portfolio-img">
+                    <h3 class="portfolio-title">Project B</h3>
+                    <p class="portfolio-description">Web Development</p>
+                </div>
+                <div class="col-md-4 portfolio-card" data-category="collab" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Project C" data-description="Description of Project C" data-image="https://www.learningandthebrain.com/blog/wp-content/uploads/2018/09/AdobeStock_182043612_Credit.jpg" data-testimonial="Client C: The insights we gained were invaluable!">
+                    <img src="https://www.learningandthebrain.com/blog/wp-content/uploads/2018/09/AdobeStock_182043612_Credit.jpg" alt="Project C" class="portfolio-img">
+                    <h3 class="portfolio-title">Project C</h3>
+                    <p class="portfolio-description">Collaboration Project</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Project Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Project Image" class="img-fluid mb-3" id="modalImage">
+                    <p id="modalDescription"></p>
+                    <h6>Client Testimonial:</h6>
+                    <p id="modalTestimonial"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Edu Learn</h5>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@edulearn.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="https://web.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.portfolio-card');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+
+        const projectModal = document.getElementById('projectModal');
+        projectModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const title = button.getAttribute('data-title');
+            const description = button.getAttribute('data-description');
+            const image = button.getAttribute('data-image');
+            const testimonial = button.getAttribute('data-testimonial');
+
+            const modalTitle = projectModal.querySelector('.modal-title');
+            const modalDescription = projectModal.querySelector('#modalDescription');
+            const modalImage = projectModal.querySelector('#modalImage');
+            const modalTestimonial = projectModal.querySelector('#modalTestimonial');
+
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalImage.src = image;
+            modalTestimonial.textContent = testimonial;
+        });
+    </script>
+</body>
+</html>

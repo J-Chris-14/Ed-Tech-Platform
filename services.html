@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Learn - Transforming Online Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff5722;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://png.pngtree.com/background/20210709/original/pngtree-vector-graffiti-book-creative-educational-background-blackboard-picture-image_548339.jpg') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .typed-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            height: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .typed-cursor {
+            font-size: 2.5rem;
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .counter-container {
+            margin: 3rem 0;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            color: var(--secondary-color);
+        }
+        
+        .feature-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .feature-card.active .feature-details {
+            max-height: 500px;
+        }
+        
+        .testimonial-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+        
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-card:hover .star-rating {
+            opacity: 1;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+           <a class="navbar-brand" href="index.html">
+                <img src="https://static.vecteezy.com/system/resources/previews/029/799/394/original/ai-in-education-icon-vector.jpg" alt="Edu" width="30" height="24">
+            </a>
+            <a class="navbar-brand" href="index.html">Edu Learn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #testimonials">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html #contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="index.html #cta" class="btn btn-outline-light">Get Started</a>
+                    <div class="dropdown d-inline">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <section class="hero-section">
+        <h2 class="hero-content display-4 mb-3 text-center ">Our Services</h2>
+    </section>
+        
+        <!-- Filter -->
+    <section class="container mt-1 pt-3">
+        <div class="text-center mb-4">
+            <button class="btn btn-primary" onclick="filterServices('all')">All</button>
+            <button class="btn btn-secondary" onclick="filterServices('tutoring')">Tutoring</button>
+            <button class="btn btn-secondary" onclick="filterServices('courses')">Courses</button>
+            <button class="btn btn-secondary" onclick="filterServices('consulting')">Consulting</button>
+        </div>
+
+        <!-- Services Catalog -->
+        <div class="row" id="servicesCatalog">
+            <div class="col-md-4 service-card" data-category="tutoring">
+                <h3>Tutoring Service</h3>
+                <p>Personalized tutoring sessions with expert tutors.</p>
+                <p><strong>Price: IDR 1.000.000/hour</strong></p>
+                <button class="btn btn-primary">Customize Package</button>
+            </div>
+            <div class="col-md-4 service-card" data-category="courses">
+                <h3>Online Courses</h3>
+                <p>Access to a variety of online courses.</p>
+                <p><strong>Price: IDR 500.000/course</strong></p>
+                <button class="btn btn-primary">Customize Package</button>
+            </div>
+            <div class="col-md-4 service-card" data-category="consulting">
+                <h3>Consulting Service</h3>
+                <p>Expert consulting for your educational needs.</p>
+                <p><strong>Price: IDR 1.500.000/hour</strong></p>
+                <button class="btn btn-primary">Customize Package</button>
+            </div>
+        </div>
+
+        <!-- Price Calculator -->
+        <div class="price-calculator">
+            <h3>Interactive Price Calculator</h3>
+            <form id="priceCalcForm">
+                <div class="mb-3">
+                    <label for="serviceType" class="form-label">Select Service Type</label>
+                    <select class="form-select" id="serviceType">
+                        <option value="tutoring">Tutoring</option>
+                        <option value="courses">Courses</option>
+                        <option value="consulting">Consulting</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="hours" class="form-label">Number of Hours</label>
+                    <input type="number" class="form-control" id="hours" min="1" value="1">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="calculatePrice()">Calculate Price</button>
+            </form>
+            <h4 class="mt-3" id="calculatedPrice"></h4>
+        </div>
+
+        <!-- Price Comparison Table -->
+        <div class="comparison-table">
+            <h3>Price Comparison Table</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tutoring Service</td>
+                        <td>IDR 1.000.000/hour</td>
+                    </tr>
+                    <tr>
+                        <td>Online Courses</td>
+                        <td>IDR 500.000/course</td>
+                    </tr>
+                    <tr>
+                        <td>Consulting Service</td>
+                        <td>IDR 1.500.000/hour</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Edu Learn</h5>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@edulearn.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="https://web.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterServices(category) {
+            const services = document.querySelectorAll('.service-card');
+            services.forEach(service => {
+                if (category === 'all' || service.getAttribute('data-category') === category) {
+                    service.style.display = 'block';
+                } else {
+                    service.style.display = 'none';
+                }
+            });
+        }
+
+        function calculatePrice() {
+            const serviceType = document.getElementById('serviceType').value;
+            const hours = document.getElementById('hours').value;
+            let pricePerHour;
+
+            switch (serviceType) {
+                case 'tutoring':
+                    pricePerHour = 1000000;
+                    break;
+                case 'courses':
+                    pricePerHour = 500000;
+                    break;
+                case 'consulting':
+                    pricePerHour = 1500000;
+                    break;
+                default:
+                    pricePerHour = 0;
+            }
+
+            const totalPrice = pricePerHour * hours;
+            document.getElementById('calculatedPrice').innerText = `Total Price: IDR${totalPrice}`;
+        }
+    </script>
+</body>
+</html>

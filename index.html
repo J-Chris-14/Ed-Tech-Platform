@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu Learn - Transforming Online Education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff5722;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://png.pngtree.com/background/20210709/original/pngtree-vector-graffiti-book-creative-educational-background-blackboard-picture-image_548339.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero-content {
+            z-index: 10;
+        }
+        
+        .typed-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            height: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .typed-cursor {
+            font-size: 2.5rem;
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .counter-container {
+            margin: 3rem 0;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            color: var(--secondary-color);
+        }
+        
+        .feature-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .feature-card.active .feature-details {
+            max-height: 500px;
+        }
+        
+        .testimonial-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+        
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-card:hover .star-rating {
+            opacity: 1;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+           <a class="navbar-brand" href="index.html">
+                <img src="https://static.vecteezy.com/system/resources/previews/029/799/394/original/ai-in-education-icon-vector.jpg" alt="Edu" width="30" height="24">
+            </a>
+            <a class="navbar-brand" href="index.html">Edu Learn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="#cta" class="btn btn-outline-light">Get Started</a>
+                    <div class="dropdown d-inline">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section --> 
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 mb-3">Upgrade Your <span class="typed-text"></span></h1>
+                    <p class="lead mb-4">Join millions of learners worldwide and unlock your potential with our personalized learning platform.</p>
+                    <div class="counter-container">
+                        <div class="row">
+                            <div class="col-md-4 counter-item">
+                                <div class="counter-number" data-target="500">0</div>
+                                <p>Active Learners</p>
+                            </div>
+                            <div class="col-md-4 counter-item">
+                                <div class="counter-number" data-target="100">0</div>
+                                <p>Expert Tutors</p>
+                            </div>
+                            <div class="col-md-4 counter-item">
+                                <div class="counter-number" data-target="30">0</div>
+                                <p>Courses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <a href="#cta" class="btn btn-primary btn-lg">Start Learning Now</a>
+                        <a href="#features" class="btn btn-outline-light btn-lg">Explore Features</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 mb-3">Powerful Learning Tools</h2>
+                <p class="lead">Everything you need to succeed in your learning journey</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Interactive Lessons</h3>
+                        <p>Engage with content through our interactive learning modules.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Our interactive lessons include quizzes, coding exercises, and real-time feedback to ensure you understand every concept thoroughly before moving forward.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Expert Tutors</h3>
+                        <p>Learn from industry experts with years of teaching experience.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Access to a global network of certified tutors available for 1:1 sessions, group discussions, and Q&A forums to support your learning journey at any time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your progress with detailed analytics and insights.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Our advanced analytics dashboard visualizes your progress, strengths, and areas needing improvement with personalized recommendations for optimal learning paths.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Certification</h3>
+                        <p>Earn recognized certificates upon course completion.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Industry-recognized certificates are awarded upon successful course completion, which you can add to your LinkedIn profile or resume to showcase your skills.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Career Support</h3>
+                        <p>Get guidance for your career path and job opportunities.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Our career services include resume reviews, interview preparation, and exclusive job listings from our partner companies looking for top talent.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Learning</h3>
+                        <p>Collaborate with peers in dedicated study groups.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 read-more">Read More</button>
+                        <div class="feature-details mt-3">
+                            <p>Join collaborative learning spaces where you can work on projects together, share resources, and connect with like-minded learners from around the world.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 mb-3">What Our Students Say</h2>
+                <p class="lead">Trusted by thousands of learners worldwide</p>
+            </div>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card text-center">
+                            <img src="" alt="Portrait of Sarah" class="testimonial-img">
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="mb-3">"The interactive lessons made complex topics easy to understand. I landed a new job after completing the course!"</p>
+                            <h5>Sarah</h5>
+                            <p class="text-muted">Data Science Student</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <img src="" alt="Portrait of Michael" class="testimonial-img">
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="mb-3">"The personalized learning path helped me focus on what I needed most. My programming skills improved dramatically in just 3 months."</p>
+                            <h5>Michael</h5>
+                            <p class="text-muted">Web Development Student</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <img src="" alt="Portrait of Aisha" class="testimonial-img">
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="mb-3">"The career support was exceptional. The resume review and mock interviews prepared me perfectly for my job search."</p>
+                            <h5>Aisha</h5>
+                            <p class="text-muted">UX Design Graduate</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section --> 
+    <section class="cta-section py-5" id="cta">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 mb-4">Ready to Start Learning?</h2>
+                    <p class="lead mb-4">Join our community of learners today and take the first step toward achieving your goals.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="services.html" class="btn btn-light btn-lg">Browse Courses</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Edu Learn</h5>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://web.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="blog.html" class="text-white">Blog</a></li>
+                        <li><a href="#" class="text-white">FAQ</a></li>
+                        <li><a href="#" class="text-white">Support</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to get updates on new courses and features.</p>
+                    <form class="mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2015 Edu Learn. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white me-3">Privacy Policy</a>
+                        <a href="#" class="text-white">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('.typed-text', {
+                strings: ["Learning", "Career", "Future", "Skills"],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: true
+            });
+            
+            function animateCounters() {
+                const counters = document.querySelectorAll('.counter-number');
+                const speed = 200;
+                
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animateCounters, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(document.querySelector('.hero-section'));
+            
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const animateOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                
+                animateElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+            
+            const readMoreButtons = document.querySelectorAll('.read-more');
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.feature-card');
+                    card.classList.toggle('active');
+                    
+                    if (card.classList.contains('active')) {
+                        this.textContent = 'Read Less';
+                    } else {
+                        this.textContent = 'Read More';
+                    }
+                });
+            });
+            
+            const testimonialCarousel = document.getElementById('testimonialCarousel');
+            
+            testimonialCarousel.addEventListener('slid.bs.carousel', function() {
+                console.log('Loading more testimonials...');
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

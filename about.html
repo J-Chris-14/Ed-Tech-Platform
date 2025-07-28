@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Edu Learn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #ff5722;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://png.pngtree.com/background/20210709/original/pngtree-vector-graffiti-book-creative-educational-background-blackboard-picture-image_548339.jpg') no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+        }
+
+
+        .timeline {
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .team-card {
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .statistics-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .statistics-item {
+            margin: 2rem 0;
+        }
+
+        .values-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .value-card {
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .social-icon { 
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://static.vecteezy.com/system/resources/previews/029/799/394/original/ai-in-education-icon-vector.jpg" alt="Edu" width="30" height="24">
+            </a>
+            <a class="navbar-brand" href="index.html">Edu Learn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#testimonials">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <a href="index.html#cta" class="btn btn-outline-light">Get Started</a>
+                    <div class="dropdown d-inline">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                            <li><a class="dropdown-item" href="services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1 class="display-4 mb-3">About Us</h1>
+            <p class="lead mb-4">Learn more about our mission, values, and the team behind Edu Learn.</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline" id="about">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Journey</h2>
+            <div class="timeline-item">
+                <h5>2015</h5>
+                <p>Edu Learn was founded with the mission to make quality education accessible to everyone.</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2017</h5>
+                <p>We launched our first online course, receiving positive feedback from learners worldwide.</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2019</h5>
+                <p>Expanded our course offerings to include various subjects and skill levels.</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2021</h5>
+                <p>Introduced interactive learning modules and personalized learning paths.</p>
+            </div>
+            <div class="timeline-item">
+                <h5>2023</h5>
+                <p>Currently serving thousands of learners with a growing community of expert tutors.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <h2 class="text-center mb-4">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card team-card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jeremy</h5>
+                            <p class="card-text">CEO & Founder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card team-card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Chris</h5>
+                            <p class="card-text">Chief Operating Officer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card team-card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Top</h5>
+                            <p class="card-text">Head of Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics-section" id="statistics">
+        <div class="container">
+            <h2 class="text-center mb-4">Company Statistics</h2>
+            <div class="row">
+                <div class="col-md-4 statistics-item">
+                    <div class="counter-number">500</div>
+                    <p>Students Enrolled</p>
+                </div>
+                <div class="col-md-4 statistics-item">
+                    <div class="counter-number">100</div>
+                    <p>Expert Tutors</p>
+                </div>
+                <div class="col-md-4 statistics-item">
+                    <div class="counter-number">30</div>
+                    <p>Courses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section" id="values">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Values</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card value-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Integrity</h5>
+                            <p class="card-text">We uphold the highest standards of integrity in all our actions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card value-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Innovation</h5>
+                            <p class="card-text">We strive to innovate and improve our learning solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card value-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Collaboration</h5>
+                            <p class="card-text">We believe in the power of collaboration and teamwork.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card value-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Excellence</h5>
+                            <p class="card-text">We aim for excellence in everything we do.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Edu Learn</h5>
+                    <p>Transforming education through innovative technology and personalized learning experiences.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@edulearn.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Follow Us</h5>
+                    <a href="https://web.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('.typed-text', {
+                strings: ["Learning", "Career", "Future", "Skills"],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: true
+            });
+            
+            function animateCounters() {
+                const counters = document.querySelectorAll('.counter-number');
+                const speed = 200;
+                
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(animateCounters, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe(document.querySelector('.statistics-section'));
+            
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const animateOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                
+                animateElements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+        });
+    </script>
+</body>
+</html>
